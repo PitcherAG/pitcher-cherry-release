@@ -1,9 +1,6 @@
 name: Release and Publish
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - release
 jobs:
   release-and-publish:
     name: Release and publish
