@@ -76,13 +76,13 @@ inquirer
       prUrls.push(`https://github.com/${repo}/compare/${target}...${featureBranch}`)
     })
 
-    console.log('\n\n\n')
+    console.log('\n')
     console.log(chalk.green('You can create your release PRs (CMD + Click to open):'))
     console.log(chalk.green('==================================='))
     prUrls.forEach((url) => {
       console.log(chalk.blue(url))
     })
-    console.log('\n\n\n')
+    console.log('\n')
 
     exec(`git checkout ${initialBranch}`, true)
   })
