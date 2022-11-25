@@ -1,6 +1,7 @@
 {
   "name": "@pitcher/cherry-release",
   "version": "1.0.1",
+  "private": false,
   "author": "Pitcher AG",
   "homepage": "https://github.com/PitcherAG/pitcher-cherry-release#readme",
   "bugs": {
