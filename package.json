@@ -1,0 +1,28 @@
+{
+  "name": "@pitcher/cherry-release",
+  "version": "0.0.1",
+  "author": "Pitcher AG",
+  "homepage": "https://github.com/PitcherAG/pitcher-cherry-release#readme",
+  "bugs": {
+    "url": "https://github.com/PitcherAG/pitcher-cherry-release/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PitcherAG/pitcher-cherry-release.git"
+  },
+  "scripts": {
+    "lint": "eslint ./src",
+    "lint:autofix": "eslint ./src --fix"
+  },
+  "bin": {
+    "cherry-release": "src/cherry-release.mjs"
+  },
+  "files": [
+    "src/"
+  ],
+
+  "dependencies": {
+    "chalk": "^5.1.2",
+    "inquirer": "^9.1.4"
+  }
+}
