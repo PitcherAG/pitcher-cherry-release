@@ -20,7 +20,16 @@
   "files": [
     "src/"
   ],
-
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@pitcher/eslint-config": "^1.2.1",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.28.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "prettier": "^1.19.1"
+  },
   "dependencies": {
     "chalk": "^5.1.2",
     "inquirer": "^9.1.4"
