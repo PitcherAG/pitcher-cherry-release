@@ -82,7 +82,7 @@ inquirer
     prUrls.forEach((url) => {
       console.log(chalk.blue(url))
     })
-    console.log('\n')
+    console.log('\n\n')
 
     exec(`git checkout ${initialBranch}`, true)
   })
