@@ -11,8 +11,8 @@
     "url": "git+https://github.com/PitcherAG/pitcher-cherry-release.git"
   },
   "scripts": {
-    "lint": "eslint ./src",
-    "lint:autofix": "eslint ./src --fix"
+    "lint": "eslint ./src --ext=.js,.mjs",
+    "lint:autofix": "eslint ./src --fix --ext=.js,.mjs"
   },
   "bin": {
     "cherry-release": "src/cherry-release.mjs"
