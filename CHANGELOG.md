@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.1.0...v1.1.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* add new line to output ([e5ff56f](https://github.com/PitcherAG/pitcher-cherry-release/commit/e5ff56ffc8a3e57b441a858b89b1491dfddcff22))
+
 # [1.1.0](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.0.1...v1.1.0) (2022-11-25)
 
 
