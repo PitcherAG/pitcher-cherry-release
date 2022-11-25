@@ -1,6 +1,6 @@
 {
   "name": "@pitcher/cherry-release",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Pitcher AG",
   "homepage": "https://github.com/PitcherAG/pitcher-cherry-release#readme",
   "bugs": {
@@ -20,7 +20,6 @@
   "files": [
     "src/"
   ],
-
   "dependencies": {
     "chalk": "^5.1.2",
     "inquirer": "^9.1.4"
