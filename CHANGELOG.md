@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.1.1...v1.2.0) (2022-12-01)
+
+
+### Bug Fixes
+
+* add jest.setup.js ([b73bf2d](https://github.com/PitcherAG/pitcher-cherry-release/commit/b73bf2df93b783232fc7efeeba64b2904b404583))
+
+
+### Features
+
+* typescript ([c812f52](https://github.com/PitcherAG/pitcher-cherry-release/commit/c812f5250da38c28f4f4518f6b46e5e372620c14))
+
 ## [1.1.1](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.1.0...v1.1.1) (2022-11-25)
 
 
