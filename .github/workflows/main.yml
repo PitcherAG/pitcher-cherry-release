@@ -75,14 +75,8 @@ jobs:
       - name: Run linter 👀
         run: yarn lint
 
-      - name: Run tests 🧪
-        run: yarn test
-
       - name: Run typechecking ✅
         run: yarn typecheck
 
-      - name: SonarCloud Scan 🛥️
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets. SONAR_TOKEN }}
+      - name: Run tests 🧪
+        run: yarn test
