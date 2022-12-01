@@ -4,6 +4,7 @@
   "private": false,
   "license": "Apache-2.0",
   "author": "Pitcher AG",
+  "type": "module",
   "homepage": "https://github.com/PitcherAG/pitcher-cherry-release#readme",
   "bugs": {
     "url": "https://github.com/PitcherAG/pitcher-cherry-release/issues"
@@ -25,7 +26,7 @@
     "cherry-release": "lib/main.js"
   },
   "files": [
-    "lib/**/*"
+    "lib/**/*!(.spec).(js|ts)"
   ],
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
@@ -59,6 +60,7 @@
   },
   "dependencies": {
     "chalk": "^5.1.2",
+    "commander": "^9.4.1",
     "inquirer": "^9.1.4"
   }
 }
