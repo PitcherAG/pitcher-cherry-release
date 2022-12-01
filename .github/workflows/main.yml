@@ -1,0 +1,88 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+    branches:
+      - main
+
+jobs:
+  jira:
+    name: Jira
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: JIRA lint
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: cleartax/jira-lint@0.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          jira-token: ${{ secrets.CI_JIRA_TOKEN }}
+          jira-base-url: https://pitcher-ag.atlassian.net
+          skip-branches: '^(releases\/\d+)$'
+          skip-comments: true
+          pr-threshold: 1000
+  commit-lint:
+    name: Commit lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Commit Lint ✅
+        if: ${{ github.event_name == 'pull_request' && !contains(github.head_ref, 'main') }}
+        uses: wagoid/commitlint-github-action@v2
+  ci:
+    name: Continuous Integration
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16.13.2]
+
+    steps:
+
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: Cache node_modules 📦
+        uses: actions/cache@v2.1.7
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies 📦
+        run: yarn install
+
+      - name: Run linter 👀
+        run: yarn lint
+
+      - name: Run tests 🧪
+        run: yarn test
+
+      - name: Run typechecking ✅
+        run: yarn typecheck
+
+      - name: SonarCloud Scan 🛥️
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets. SONAR_TOKEN }}

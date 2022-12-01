@@ -6,7 +6,14 @@ const sha1 = /\b[0-9a-f]{5,40}\b/g
 const todayDate = new Date()
 const today = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`
 
-function exec(command, silent) {
+export interface CliAnswers {
+    targets: string[],
+    commits: string[],
+    branch: string,
+}
+
+
+function exec(command: string, silent: boolean = false) {
   if (!silent) console.log(chalk.green('Executing: ') + command)
   const result = execSync(command, { encoding: 'utf8' })
   if (!silent) console.log(result)
@@ -31,14 +38,14 @@ inquirer
       type: 'input',
       name: 'commits',
       message: "What commits do you want to deploy?",
-      validate(input) {
+      validate(input: string) {
         if (sha1.test(input)) {
           return true;
         }
 
         throw Error('Please provide a valid git commit(s) SHA.');
       },
-      filter(input) {
+      filter(input: string) {
         return input.match(sha1)
       }
     },{
@@ -46,13 +53,13 @@ inquirer
       name: 'branch',
       message: 'What should be the unique branch name of your deploy branch(es)?',
       default: today,
-      transformer(answer) {
+      transformer(answer: string) {
         return `deploy/${answer || today}_to_<env>`
       },
     },
   ])
-  .then((answers) => {
-    const prUrls = []
+  .then((answers: CliAnswers) => {
+    const prUrls: string[] = []
     const repo = exec('git config --get remote.origin.url', true).trim().split('.git')[0].split(':')[1]
     const initialBranch = exec('git rev-parse --abbrev-ref HEAD', true).trim()
 
@@ -62,13 +69,13 @@ inquirer
       return
     }
 
-    answers.targets.forEach((target) => {
+    answers.targets.forEach((target: string) => {
       const featureBranch = `deploy/${answers.branch}_to_${target}`
 
       exec(`git checkout ${target}`)
       exec(`git pull`)
       exec(`git checkout ${featureBranch}`)
-      answers.commits.forEach((commitHash) => {
+      answers.commits.forEach((commitHash: string) => {
         exec(`git cherry-pick ${commitHash}`)
       })
       exec(`git push -u origin ${featureBranch}`)

@@ -2,6 +2,7 @@
   "name": "@pitcher/cherry-release",
   "version": "1.1.1",
   "private": false,
+  "license": "Apache-2.0",
   "author": "Pitcher AG",
   "homepage": "https://github.com/PitcherAG/pitcher-cherry-release#readme",
   "bugs": {
@@ -12,24 +13,49 @@
     "url": "git+https://github.com/PitcherAG/pitcher-cherry-release.git"
   },
   "scripts": {
-    "lint": "eslint ./src --ext=.js,.mjs",
-    "lint:autofix": "eslint ./src --fix --ext=.js,.mjs"
+    "prepack": "yarn build",
+    "build": "tsc",
+    "lint": "eslint",
+    "lint-fix": "eslint --fix",
+    "test": "jest --coverage",
+    "test-watch": "jest --watch",
+    "typecheck": "tsc --noEmit"
   },
   "bin": {
-    "cherry-release": "src/cherry-release.mjs"
+    "cherry-release": "lib/main.js"
   },
   "files": [
-    "src/"
+    "lib/**/*"
   ],
   "devDependencies": {
     "@babel/preset-env": "^7.16.11",
-    "@pitcher/eslint-config": "^1.2.1",
+    "@pitcher/eslint-config": "^1.3.0",
+    "@types/inquirer": "^9.0.3",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.32",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.28.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "jest": "^27.0.6",
-    "prettier": "^1.19.1"
+    "buffer": "^6.0.3",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "fetch-mock": "^1.5.2",
+    "fetch-mock-jest": "^1.5.1",
+    "jest": "^27.5.1",
+    "jest-fetch-mock": "^3.0.3",
+    "prettier": "^2.6.2",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "timers-browserify": "^2.0.12",
+    "ts-jest": "^27.1.4",
+    "ts-json-schema-generator": "^1.0.0",
+    "ts-loader": "^9.2.8",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   },
   "dependencies": {
     "chalk": "^5.1.2",
