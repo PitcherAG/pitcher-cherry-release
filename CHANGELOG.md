@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.2.0...v1.3.0) (2022-12-01)
+
+
+### Features
+
+* brand new command-line interface ([75adef6](https://github.com/PitcherAG/pitcher-cherry-release/commit/75adef69577ddee376ad8bc45d4ad3acd359d611))
+
 # [1.2.0](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.1.1...v1.2.0) (2022-12-01)
 
 
