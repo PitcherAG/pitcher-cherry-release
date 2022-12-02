@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.3.0...v1.3.1) (2022-12-02)
+
+
+### Bug Fixes
+
+* typo ([456aebe](https://github.com/PitcherAG/pitcher-cherry-release/commit/456aebe1b2cde2def791fb0c9e79576afff6044e))
+
 # [1.3.0](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.2.0...v1.3.0) (2022-12-01)
 
 
