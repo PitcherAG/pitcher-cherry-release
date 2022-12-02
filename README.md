@@ -14,7 +14,7 @@ npx @pitcher/cherry-release --help
 Usage: cherry-release [options]
 
 Options:
-  -t, --targets <brnach-names...>  Where do you want to deploy? Provide target release branch names.
+  -t, --targets <branch-names...>  Where do you want to deploy? Provide target release branch names.
                                    You can provide many branch names separated by spaces.
   -b, --branch-name <branch-name>  What should be the unique branch name of your deploy branch(es)? Provide the core of the release feature
                                    branch name that will be used with this template `deploy/<branch-name>_to_<target>`. (default: "2022-12-2")
