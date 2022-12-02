@@ -41,7 +41,7 @@ function checkPreconditions() {
 
 (async () => {
   program
-    .requiredOption('-t, --targets <brnach-names...>', 'Where do you want to deploy? Provide target release branch names.')
+    .requiredOption('-t, --targets <branch-names...>', 'Where do you want to deploy? Provide target release branch names.')
     .requiredOption('-b, --branch-name <branch-name>', 'What should be the unique branch name of your deploy branch(es)? Provide the core of the release feature branch name that will be used with this template `deploy/<branch-name>_to_<target>`.', today)
     .option('-c, --commits <commits...>', 'What commits do you want to deploy? Provide commit SHAs that you want to cherry-pick. If both commits and search options are provided, they will be merged.')
     .option('-s, --search <string>', 'What JIRA issues do you want to deploy? Specify keyword to search for in the commit messages and interactively pick them from the list. Case insensitive.')
