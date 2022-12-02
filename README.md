@@ -4,7 +4,24 @@ While we know cherry-picking for release is not the best way to do it, it is req
 
 ## Usage
 
-Just run with the below command and follow the wizard steps:
+You can execute cherry-release iinside any directory with `npx`. Use `--help` to find out about the options
 ```
-npx @pitcher/cherry-release
+npx @pitcher/cherry-release --help
+```
+
+
+```
+Usage: cherry-release [options]
+
+Options:
+  -t, --targets <brnach-names...>  Where do you want to deploy? Provide target release branch names.
+                                   You can provide many branch names separated by spaces.
+  -b, --branch-name <branch-name>  What should be the unique branch name of your deploy branch(es)? Provide the core of the release feature
+                                   branch name that will be used with this template `deploy/<branch-name>_to_<target>`. (default: "2022-12-2")
+  -c, --commits <commits...>       What commits do you want to deploy? Provide space-separated SHAs of the commits you want to cherry-pick.
+                                   If both commits and search options are provided, they will be merged.
+  -s, --search <string>            What JIRA issues do you want to deploy? Specify keyword to search for in the commit messages and
+                                   interactively pick them from the list. Case insensitive.
+  -np, --no-push                   You don't want to push yet? Disable pushing new branches to the remote repository.
+  -h, --help                       display help for command
 ```
