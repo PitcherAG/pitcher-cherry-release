@@ -111,7 +111,7 @@ function checkPreconditions() {
       exec(`git push -u origin ${featureBranch}`)
     }
 
-    prUrls.push(`https://github.com/${repo}/compare/${target}...${featureBranch}`)
+    prUrls.push(`https:${repo}/compare/${target}...${featureBranch}`)
   })
 
   console.log('\n\n')
