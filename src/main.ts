@@ -92,7 +92,10 @@ function checkPreconditions() {
 
 
   const prUrls: string[] = []
-  const repo = execSilently('git config --get remote.origin.url').split('.git')[0].split(':')[1]
+  const originUrl = execSilently('git config --get remote.origin.url')
+  const repo = originUrl
+    .split('.git')[0]
+    .split(originUrl.startsWith('https://') ? 'https://github.com/' : ':')[1]
   const initialBranch = execSilently('git rev-parse --abbrev-ref HEAD')
 
   options.targets.forEach((target: string) => {
