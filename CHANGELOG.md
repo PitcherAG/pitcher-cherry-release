@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.3.1...v1.4.0) (2022-12-16)
+
+
+### Features
+
+* add support for repos cloned with https ([315227a](https://github.com/PitcherAG/pitcher-cherry-release/commit/315227a704cd9ec60258ca14091277dece3e7bfe))
+* allow to pick from 30 most recent commits if neither search nor commits parameters are provided ([39820ca](https://github.com/PitcherAG/pitcher-cherry-release/commit/39820ca8ed64a87aba7f044dc926d72d77d7a51b))
+* make merge commits more distinctive ([3eabe02](https://github.com/PitcherAG/pitcher-cherry-release/commit/3eabe02824b289b348ff2ede4c2bcce36eb3767d))
+
 ## [1.3.1](https://github.com/PitcherAG/pitcher-cherry-release/compare/v1.3.0...v1.3.1) (2022-12-02)
 
 
