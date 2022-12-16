@@ -43,20 +43,17 @@ function checkPreconditions() {
   program
     .requiredOption('-t, --targets <branch-names...>', 'Where do you want to deploy? Provide target release branch names.')
     .requiredOption('-b, --branch-name <branch-name>', 'What should be the unique branch name of your deploy branch(es)? Provide the core of the release feature branch name that will be used with this template `deploy/<branch-name>_to_<target>`.', today)
-    .option('-c, --commits <commits...>', 'What commits do you want to deploy? Provide commit SHAs that you want to cherry-pick. If both commits and search options are provided, they will be merged.')
-    .option('-s, --search <string>', 'What JIRA issues do you want to deploy? Specify keyword to search for in the commit messages and interactively pick them from the list. Case insensitive.')
+    .option('-c, --commits <commits...>', 'What commits do you want to deploy? Provide commit SHAs that you want to cherry-pick. If both commits and search options are provided, they will be merged.', [])
+    .option('-s, --search <string>', 'What JIRA issues do you want to deploy? Specify keyword to search for in the commit messages and interactively pick them from the list. Case insensitive.', '')
     .option('-np, --no-push', 'You don\'t want to push yet? Disable pushing new branches to the remote repository.')
     .parse()
 
   const options = program.opts()
-  if (!options.commits) {
-    options.commits = []
-  }
-
   checkPreconditions()
 
-  if (options.search) {
-    const commitList = execSilently(`git log -i --grep="${options.search}" --pretty="format:%h<|>%ad<|>%aN<|>%s" --date=format-local:"%Y-%m-%d %H:%M:%S"`)
+  const showRecentCommitsByUsingEmptySearch = options.commits.length === 0 && options.search === ''
+  if (options.search || showRecentCommitsByUsingEmptySearch) {
+    const commitList = execSilently(`git log -i --grep="${options.search}" --pretty="format:%h<|>%ad<|>%aN<|>%s" --date=format-local:"%Y-%m-%d %H:%M:%S" --max-count=30`)
       .split('\n')
       .map(line => {
         const [sha, date, author, message] = line.split('<|>')
