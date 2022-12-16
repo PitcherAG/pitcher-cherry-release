@@ -69,11 +69,17 @@ function checkPreconditions() {
             message: 'Which of the matching commits from the current branch do you want to deploy?',
             loop: false,
             pageSize: 20,
-            choices: commitList.map((c) => ({
-              value: c.sha,
-              name: `${chalk.yellow(c.sha)} ${chalk.magenta(c.date)}  ${c.message}  ${chalk.green(c.author)}`,
-              disabled: c.message.startsWith('Merge') ? chalk.redBright('Merge commits not supported') : false,
-            })),
+            choices: commitList.map((c) => {
+              const isMergeCommit = c.message.startsWith('Merge')
+              const name = isMergeCommit
+                ? `${chalk.grey(c.sha)} ${chalk.grey(c.date)}  ${chalk.grey(c.message)}  ${chalk.grey(c.author)}`
+                : `${chalk.yellow(c.sha)} ${chalk.magenta(c.date)}  ${c.message}  ${chalk.green(c.author)}`
+              return {
+                value: c.sha,
+                name,
+                disabled: isMergeCommit,
+              }
+          }),
           },
         ])
       options.commits = [
