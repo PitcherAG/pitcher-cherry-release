@@ -18,7 +18,7 @@ module.exports = {
     [
       '@semantic-release/git',
       {
-        assets: ['dist/pitcher-cherry-release.js', 'CHANGELOG.md', 'package.json'],
+        assets: ['lib/main.js', 'lib/main.d.ts', 'CHANGELOG.md', 'package.json'],
         message: 'chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
       },
     ],

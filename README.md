@@ -6,7 +6,9 @@ While we know cherry-picking for release is not the best way to do it, it is req
 
 You can execute cherry-release iinside any git repository with `npx`. Use `--help` to find out about the options
 ```
-npx @pitcher/cherry-release --help
+npm install -g @pitcher/cherry-release
+
+cherry-release --help
 ```
 
 ```
